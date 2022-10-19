@@ -5,6 +5,7 @@ import { Header } from 'react-native/Libraries/NewAppScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {UserIcon, ChevronDownIcon, SearchIcon, AdjustmentsIcons, ChevronDoubleRightIcon, AdjustmentsHorizontalIcon, AdjustmentsVerticalIcon, MagnifyingGlassIcon,} from "react-native-heroicons/outline";
 import Categories from '../components/Categories';
+import FeaturedRow from '../components/FeaturedRow';
 
 
 
@@ -63,6 +64,21 @@ const HomeScreen = () => {
           <Categories />
           
           {/**Feature rows */}
+          <FeaturedRow 
+          id={123}
+          title= "Featured"
+          description="Paid placement from our client"
+          />
+         <FeaturedRow 
+          id={1234}
+          title= "Featured"
+          description="Paid placement from our client"
+          />
+           <FeaturedRow 
+          id={12345}
+          title= "Featured"
+          description="Paid placement from our client"
+          />
         </ScrollView>
     
     </SafeAreaView>
