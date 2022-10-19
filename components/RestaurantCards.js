@@ -11,7 +11,7 @@ const RestaurantCards = ({
   shortDescription,
   dishes,
   long,
-  last
+  lat
 }) => {
   return (
     <View>

@@ -22,7 +22,19 @@ const FeaturedRow = ({id,title, description}) => {
       className="pt-4"
       >
         {/**RestaurantCards */}
-        <RestaurantCards />
+        <RestaurantCards 
+        id={12}
+        imgUrl="https://links.papareact.com/wru"
+        title="Yo! Sushi"
+        rating={4.0}
+        genre = "Japanese"
+        address="123 Main Street"
+        shortDescription="This is a test description"
+        dishes={{}}
+        long={20}
+        lat={20}
+        
+        />
       </ScrollView>
     </View>
   )
