@@ -7,6 +7,7 @@ import {UserIcon, ChevronDownIcon, SearchIcon, AdjustmentsIcons, ChevronDoubleRi
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
 import client from '../sanity';
+import category from '../sanity/schemas/category';
 
 
 
@@ -78,21 +79,15 @@ const HomeScreen = () => {
           <Categories />
           
           {/**Feature rows */}
-          <FeaturedRow 
-          id={123}
-          title= "Featured"
-          description="Paid placement from our client"
-          />
-         <FeaturedRow 
-          id={1234}
-          title= "Featured"
-          description="Paid placement from our client"
-          />
-           <FeaturedRow 
-          id={12345}
-          title= "Featured"
-          description="Paid placement from our client"
-          />
+          {featuredCategories?.map((category)=>(
+            <FeaturedRow 
+              key = {category._id}
+              id = { category._id}
+              title =  {category.name}
+              description = {category.short_description}
+            />
+          ))}
+
         </ScrollView>
     
     </SafeAreaView>
