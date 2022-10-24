@@ -50,7 +50,7 @@ export default {
       name:'type',
       title: 'Category',
       validation: (Rule) => Rule.required(),
-      type:'reference',
+      type:"reference",
       to: [{type: "category" }],
     },
     {
