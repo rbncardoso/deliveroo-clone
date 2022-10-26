@@ -76,7 +76,7 @@ const HomeScreen = () => {
           }}
           >
           {/**Categorie */}
-          <Categories />
+          <Categories/>
           
           {/**Feature rows */}
           {featuredCategories?.map((category)=>(

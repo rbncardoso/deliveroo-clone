@@ -23,6 +23,7 @@ const Categories = () => {
     }}
     horizontal
     showsHorizontalScrollIndicator={false}
+    
     >
       {categories.map((category) =>(
 
