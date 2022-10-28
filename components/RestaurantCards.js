@@ -22,8 +22,8 @@ const RestaurantCards = ({
   
   return (
     <TouchableOpacity 
-    onPress={()=>{
-      navigation.navigate('Restaurant', {
+     onPress={()=>{
+      navigation.navigate("Restaurant", {
         id,
         imgUrl,
         title,
@@ -34,7 +34,7 @@ const RestaurantCards = ({
         dishes,
         long,
         lat
-      })
+      });
     }}
     className="bg-white mx-3 shadow">
       
