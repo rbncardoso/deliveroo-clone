@@ -45,7 +45,7 @@ const FeaturedRow = ({id,title, description}) => {
         paddingHorizontal: 15,
       }}
       showsHorizontalScrollIndicator={false}
-      className="pt-4 relative"
+      className="pt-4"
       >
       {restaurants?.map( restaurant =>(
         <RestaurantCards
