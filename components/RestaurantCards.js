@@ -62,7 +62,6 @@ const RestaurantCards = ({
           <Text className="text-xs text-gray-500">Nearby {address}</Text>
         </View>
 
-        <Text>RestaurantCards</Text>
 
       </View>
     </TouchableOpacity>
