@@ -53,16 +53,17 @@ const RestaurantScreen = () => {
         
         <View className="flex ">
           <View className="flex-row items-center space-x-2 pb-3">
-             <StarIcon size={25} color="grey" opacity={0.7}/>
-             <Text>{rating}</Text>
+             <StarIcon size={25} color="green" opacity={0.4}/>
+             <Text className="text-green-700" >{rating}</Text>
              <MapPinIcon size={25} color="grey" opacity={0.7}/>
-          <Text>{address}</Text>
+          <Text className="text-gray-500">{address}</Text>
+          <Text className="text-gray-500">{genre}</Text>
+
           </View>
         </View>
 
-        <View>
-          <Text>{shortDescription}</Text>
-        </View>
+          <Text className="text-gray-500">{shortDescription}</Text>
+       
      </View>
   </ScrollView>
   )
