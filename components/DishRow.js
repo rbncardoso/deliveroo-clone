@@ -1,11 +1,14 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const DishRow = ({id, name, description, price, image}) => {
+const DishRow = ({ id, name, short_description, price, image }) => {
   return (
-    <View>
-      <Text>DishRow</Text>
-    </View>
+    <TouchableOpacity>
+      <View>
+        <Text className="text-lg mb-1">{name}</Text>
+        <Text className="text-gray-400">{short_description}</Text>
+      </View>
+    </TouchableOpacity>
   )
 }
 
