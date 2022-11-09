@@ -1,0 +1,1 @@
+React Native project using Navigation, Redux, Tailwind CSS & Sanity.io
