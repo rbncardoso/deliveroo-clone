@@ -1,8 +1,8 @@
-import { View, Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
+import { View, Text, Image, TextInput, ScrollView } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Header } from 'react-native/Libraries/NewAppScreen';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserIcon, ChevronDownIcon, SearchIcon, AdjustmentsIcons, ChevronDoubleRightIcon, AdjustmentsHorizontalIcon, AdjustmentsVerticalIcon, MagnifyingGlassIcon, } from "react-native-heroicons/outline";
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
@@ -38,7 +38,7 @@ const HomeScreen = () => {
 
   return (
     //in IOs, in Android doens't work
-    <SafeAreaView className="bg-white pt-5 mt-1 ">
+    <SafeAreaView className="bg-white mt-1 ">
 
       {/*Header */}
       <View className=" flex-row  pb-3 items-center mx-4 space-x-2 ">
