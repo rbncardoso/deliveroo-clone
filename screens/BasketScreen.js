@@ -74,15 +74,30 @@ const BasketScreen = () => {
             </View>
           ))}
         </ScrollView>
-          
-          <View className="p-5 bg-white mt-5 space-y-4">
-            <View className="flex-row justify-between">
-              <Text className="text-gray-400">SubTotal</Text>
-              <Text className="text-gray-400">
-                <Currency quantity={basketTotal} currency="CVE"/>
-              </Text>
-            </View>
+
+        <View className="p-5 bg-white mt-5 space-y-4">
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">SubTotal</Text>
+            <Text className="text-gray-400">
+              <Currency quantity={basketTotal} currency="CVE" />
+            </Text>
           </View>
+
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Delivery Fee</Text>
+            <Text className="text-gray-400">
+              <Currency quantity={5.99} currency="CVE" />
+            </Text>
+          </View>
+
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Order Total</Text>
+            <Text className="text-gray-400">
+              <Currency quantity={basketTotal + 5.99} currency="CVE" />
+            </Text>
+          </View>
+
+        </View>
 
       </View>
     </SafeAreaView>
