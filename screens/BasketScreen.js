@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectRestaurant } from '../features/restaurantSlice'
-import { removeFromBasket, selectBasketItems } from '../features/basketSlice'
+import { removeFromBasket, selectBasketItems, selectBasketTotal } from '../features/basketSlice'
 import { XCircleIcon } from 'react-native-heroicons/solid'
 import { urlFor } from '../sanity'
 import Currency from 'react-currency-formatter'
@@ -15,6 +15,7 @@ const BasketScreen = () => {
   const items = useSelector(selectBasketItems);
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const dispatch = useDispatch();
+  const basketTotal = useSelector(selectBasketTotal);
 
   useEffect(() => {
     const groupedItems = items.reduce((results, item) => {
@@ -38,39 +39,51 @@ const BasketScreen = () => {
             <XCircleIcon color="#00CCBB" size={50} />
           </TouchableOpacity>
         </View>
-         <View className="flex-row space-x-4 items-center bg-white px-3 py-3 my-5">
-          <Image 
+        <View className="flex-row space-x-4 items-center bg-white px-3 py-3 my-5">
+          <Image
             source={{
-              uri: "https://links.papareact.com/wru"  }}
-              className="h-8 w-8 rounded-full p-4"
+              uri: "https://links.papareact.com/wru"
+            }}
+            className="h-8 w-8 rounded-full p-4"
           />
           <Text className="flex-1"> Deliver in 50-75min</Text>
           <TouchableOpacity>
-              <Text className="text-[#00CCBB]">Change</Text>
+            <Text className="text-[#00CCBB]">Change</Text>
           </TouchableOpacity>
-         </View>
+        </View>
 
-         <ScrollView>
-          {Object.entries(groupedItemsInBasket).map(([key,items])=>(
-            <View key={key} className="flex-row items-center">
+        <ScrollView className="divide-y divide-gray-200">
+          {Object.entries(groupedItemsInBasket).map(([key, items]) => (
+            <View key={key}
+              className="flex-row items-center space-x-3 bg-white py-2 px-2">
               <Text>{items.length} x</Text>
-              <Image 
-                source={{uri: urlFor(items[0]?.image).url()}}
+              <Image
+                source={{ uri: urlFor(items[0]?.image).url() }}
                 className="h-12 w-12 rounded-full"
               />
-              <Text>{items[0]?.name}</Text>
-              <Text>
-                <Currency quantity={items[0]?.price}  currency="CVE"/>
+              <Text className="flex-1">{items[0]?.name}</Text>
+              <Text className="text-gray-600">
+                <Currency quantity={items[0]?.price} currency="CVE" />
               </Text>
 
               <TouchableOpacity>
-                <Text 
-                className="text-[#00CCBB] text-xs"
-                onPress={()=>dispatch(removeFromBasket({id:key}))}>Remove</Text>
+                <Text
+                  className="text-[#00CCBB] text-xs"
+                  onPress={() => dispatch(removeFromBasket({ id: key }))}>Remove</Text>
               </TouchableOpacity>
             </View>
           ))}
-         </ScrollView>
+        </ScrollView>
+          
+          <View className="p-5 bg-white mt-5 space-y-4">
+            <View className="flex-row justify-between">
+              <Text className="text-gray-400">SubTotal</Text>
+              <Text className="text-gray-400">
+                <Currency quantity={basketTotal} currency="CVE"/>
+              </Text>
+            </View>
+          </View>
+
       </View>
     </SafeAreaView>
   )
