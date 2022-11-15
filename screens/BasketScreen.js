@@ -16,6 +16,8 @@ const BasketScreen = () => {
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const dispatch = useDispatch();
   const basketTotal = useSelector(selectBasketTotal);
+  const deliverFee = 5.99;
+  const orderTotal = (total, del)=>(total !=0)? total + del: 0;
 
   useEffect(() => {
     const groupedItems = items.reduce((results, item) => {
@@ -86,19 +88,21 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Delivery Fee</Text>
             <Text className="text-gray-400">
-              <Currency quantity={5.99} currency="CVE" />
+              <Currency quantity={deliverFee} currency="CVE" />
             </Text>
           </View>
 
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Order Total</Text>
             <Text className="text-gray-400">
-              <Currency quantity={basketTotal + 5.99} currency="CVE" />
+              <Currency quantity={orderTotal(basketTotal,deliverFee)} currency="CVE" />
             </Text>
           </View>
-
+          
+          <TouchableOpacity className="rounded-lg bg-[#00CCBB] items-center p-4">
+            <Text className="text-center text-white font-bold text-lg">Place Order</Text>
+          </TouchableOpacity>
         </View>
-
       </View>
     </SafeAreaView>
   )
